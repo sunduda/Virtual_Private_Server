@@ -1,0 +1,25 @@
+#CentOS ShadowSocks configuration
+vi /etc/shadowsocks.json
+#{
+#    "server":"your_server_ip",
+#    "server_port":8989,
+#    "local_address": "127.0.0.1",
+#    "local_port":1080,
+#    "password":"yourpassword",
+#    "timeout":600,
+#    "method":"aes-256-cfb",
+#    "fast_open": false,
+#    "workers": 1
+#}
+#Meaning of each field
+#server：Server IP (IPv4/IPv6), notice that this will be the IP address listened by the server.
+#server_port：A listened server port.
+#local_address：A listened local IP address.
+#local_port：A listened local port.
+#password：Password for connections.
+#timeout：Waiting time before connection failure (s).
+#method：Encryption methods, choose from "bf-cfb", "aes-256-cfb", "des-cfb", "rc4", and so on. Recommend “aes-256-cfb”.
+#fast_open："true" or "false". If your server OS Linux kernel is 3.7 or higher, fast_open can be opened to decrease the lag. 
+#The way of opening the fast_open:
+echo 3 > /proc/sys/net/ipv4/tcp_fastopen
+#works：The number of works, default by 1.

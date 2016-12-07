@@ -1,0 +1,10 @@
+﻿#OpenVPN:
+yum update
+yum install net-tools
+cd /tmp
+wget http://swupdate.openvpn.org/as/openvpn-as-2.0.10-CentOS7.x86_64.rpm
+rpm -Uvh openvpn-as-2.0.10-CentOS7.x86_64.rpm
+passwd openvpn
+
+#Username: openvpn
+#Client UI: https://0.0.0.0:943/

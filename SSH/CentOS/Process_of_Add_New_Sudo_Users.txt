@@ -1,0 +1,26 @@
+useradd ######
+passwd ######
+chmod -v u+w /etc/sudoers
+#Add your username into the sudoer list.
+chmod -v u-w /etc/sudoers
+
+mkdir .ssh
+chmod 755 .ssh
+#If you are using Windows on the client, run the command below to upload your public key.
+pscp.exe authorized_keys user@0.0.0.0:.ssh/
+
+#Back to the server.
+chmod 400 ~/.ssh/authorized_keys
+vi /etc/ssh/sshd_config
+##################################################
+PermitRootLogin yes
+ServerKeyBits 2048
+RSAAuthentication yes
+PubkeyAuthentication yes
+AuthorizedKeysFile .ssh/authorized_keys
+PasswordAuthentication no
+PermitEmptyPasswords no
+UsePAM no
+##################################################
+#Restart ssh:
+systemctl restart sshd.service
