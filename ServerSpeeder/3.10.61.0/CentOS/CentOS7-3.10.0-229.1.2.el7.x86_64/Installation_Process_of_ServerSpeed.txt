@@ -1,0 +1,9 @@
+﻿#Change Kernel:
+rpm -ivh http://soft.91yun.org/ISO/Linux/CentOS/kernel/kernel-3.10.0-229.1.2.el7.x86_64.rpm --force
+rpm -qa | grep kernel
+reboot
+uname -r
+
+#ServerSpeeder:
+wget -N --no-check-certificate https://raw.githubusercontent.com/91yun/serverspeeder/master/serverspeeder-all.sh && bash serverspeeder-all.sh
+service serverSpeeder status

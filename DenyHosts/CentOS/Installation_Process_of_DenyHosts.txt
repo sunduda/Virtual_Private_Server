@@ -1,0 +1,6 @@
+#Install DenyHosts
+yum install denyhosts
+service denyhosts start
+chkconfig denyhosts on
+#Check the number of IPs blocked.
+cat /etc/hosts.deny | wc -l
